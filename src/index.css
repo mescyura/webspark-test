@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+@import 'react-datepicker/dist/react-datepicker.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+.react-datepicker-wrapper {
+	width: 100%;
+}
+
+.react-datepicker__input-container input {
+	width: 100%;
+	outline: none;
+}
+
+.react-datepicker {
+	border: 1px solid #e5e7eb;
+	border-radius: 4px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	font-family: inherit;
+}
+
+.react-datepicker__header {
+	background: #fff;
+	border-bottom: 1px solid #e5e7eb;
+	padding-top: 12px;
+}
+
+.react-datepicker__current-month {
+	font-size: 14px;
+	font-weight: 500;
+	color: #374151;
+}
+
+.react-datepicker__day-name {
+	color: #9ca3af;
+	font-size: 12px;
+	width: 2rem;
+	line-height: 2rem;
+}
+
+.react-datepicker__day {
+	width: 2rem;
+	line-height: 2rem;
+	font-size: 13px;
+	color: #374151;
+	border-radius: 2px;
+}
+
+.react-datepicker__day:hover {
+	background: #f3f4f6;
+	border-radius: 2px;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+	background: #3b82f6 !important;
+	color: #fff !important;
+	border-radius: 2px;
+}
+
+.react-datepicker__day--outside-month {
+	color: #d1d5db;
+}
+
+.react-datepicker__navigation-icon::before {
+	border-color: #6b7280;
+}
+
+.react-datepicker__triangle {
+	display: none;
+}
+
+/* ==========================================================================
+   АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (БЕЗ ЗАЙВИХ ЗМІННИХ)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+	/* Фіксуємо календар строго по центру екрана як модальне вікно */
+	.custom-mobile-popper {
+		position: fixed !important;
+		top: 50% !important;
+		left: 50% !important;
+		transform: translate(-50%, -50%) !important;
+		z-index: 50;
+	}
+
+	/* Додаємо напівпрозорий темний фон-підкладку на весь екран під календарем */
+	.custom-mobile-popper::before {
+		content: '';
+		position: fixed;
+		top: -100vh;
+		left: -100vw;
+		width: 200vw;
+		height: 200vh;
+		background: rgba(0, 0, 0, 0.4); /* Затемнення екрана */
+		backdrop-filter: blur(2px); /* Легке розмиття заднього плану */
+		z-index: -1;
+		pointer-events: none;
+	}
+}
